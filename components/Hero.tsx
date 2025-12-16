@@ -46,11 +46,15 @@ const Hero = () => {
                         transition={{ duration: 0.5 }}
                         style={{ marginBottom: '60px' }}
                     >
-                        <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-pink-500 glow-border float-animation">
-                            {/* Placeholder - Replace with actual photo */}
-                            <div className="w-full h-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center">
-                                <span className="text-8xl font-bold text-white">PT</span>
-                            </div>
+                        <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-pink-500 glow-border float-animation relative">
+                            {/* Profile Photo */}
+                            <Image
+                                src="/images/avatar-profile.jpeg"
+                                alt="Phuong To"
+                                fill
+                                style={{ objectFit: 'cover' }}
+                                priority
+                            />
                         </div>
                     </motion.div>
 

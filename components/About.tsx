@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaGraduationCap, FaBriefcase, FaMapMarkerAlt, FaCertificate } from 'react-icons/fa';
+import Image from 'next/image';
 
 const About = () => {
     const [ref, inView] = useInView({
@@ -33,7 +34,7 @@ const About = () => {
         <section
             id="about"
             ref={ref}
-            style={{ 
+            style={{
                 background: 'linear-gradient(180deg, #0a0514 0%, #140a1f 100%)',
                 paddingTop: '160px',
                 paddingBottom: '160px'
@@ -51,7 +52,7 @@ const About = () => {
                     ABOUT ME
                 </motion.h2>
 
-                <div 
+                <div
                     className="grid md:grid-cols-2 gap-20 lg:gap-32 items-center"
                     style={{ marginBottom: '200px' }}
                 >
@@ -62,11 +63,14 @@ const About = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="flex justify-center"
                     >
-                        <div className="w-full max-w-lg aspect-square rounded-3xl overflow-hidden border-4 border-pink-500 glow-border shadow-2xl shadow-pink-500/20">
-                            {/* Placeholder - Replace with actual photo */}
-                            <div className="w-full h-full bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center">
-                                <span className="text-9xl font-bold text-white opacity-50">PT</span>
-                            </div>
+                        <div className="w-full max-w-lg aspect-square rounded-3xl overflow-hidden border-4 border-pink-500 glow-border shadow-2xl shadow-pink-500/20 relative">
+                            {/* Profile Image */}
+                            <Image
+                                src="/images/profile.png"
+                                alt="Phuong To About Me"
+                                fill
+                                style={{ objectFit: 'cover' }}
+                            />
                         </div>
                     </motion.div>
 
@@ -77,7 +81,7 @@ const About = () => {
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="space-y-10"
                     >
-                        <h3 
+                        <h3
                             className="text-3xl md:text-4xl lg:text-5xl font-bold text-pink-500"
                             style={{ marginTop: '40px', marginBottom: '50px' }}
                         >
@@ -117,7 +121,7 @@ const About = () => {
                     transition={{ duration: 0.6, delay: 0.6 }}
                     style={{ marginTop: '100px' }}
                 >
-                    <h3 
+                    <h3
                         className="text-3xl md:text-4xl font-bold text-center text-purple-300"
                         style={{ marginBottom: '100px' }}
                     >
@@ -132,17 +136,17 @@ const About = () => {
                                 transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
                                 whileHover={{ scale: 1.05, y: -8 }}
                                 className="glass-card text-center cursor-pointer min-h-[260px] flex flex-col items-center justify-center"
-                                style={{ 
+                                style={{
                                     padding: '50px 35px',
                                 }}
                             >
-                                <div 
+                                <div
                                     className="text-6xl md:text-7xl text-pink-500 flex justify-center"
                                     style={{ marginBottom: '40px' }}
                                 >
                                     {fact.icon}
                                 </div>
-                                <p 
+                                <p
                                     className="text-gray-300 text-base md:text-lg leading-relaxed"
                                     style={{ paddingLeft: '20px', paddingRight: '20px' }}
                                 >

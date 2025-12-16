@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { SiNextdotjs, SiTypescript, SiReact, SiTailwindcss, SiPostgresql, SiDocker, SiBootstrap, SiNodedotjs, SiExpress, SiMysql } from 'react-icons/si';
+import Image from 'next/image';
 
 const Projects = () => {
     const [ref, inView] = useInView({
@@ -33,6 +34,7 @@ const Projects = () => {
             github: 'https://github.com/phuongtoVN/MaiBeauti',
             demo: '',
             imagePosition: 'left',
+            image: '/projects/maibeauti.png'
         },
         {
             title: 'Rise of the Elements',
@@ -52,6 +54,7 @@ const Projects = () => {
             github: 'https://github.com/phuongtoVN/rise-of-the-elements',
             demo: '',
             imagePosition: 'right',
+            image: '/projects/rise-of-elements.png'
         },
         {
             title: 'Kitchen Alchemy',
@@ -73,6 +76,7 @@ const Projects = () => {
             github: 'https://github.com/Zed-CSP/codeConnoisseurs',
             demo: '',
             imagePosition: 'left',
+            image: '/projects/kitchen-alchemy.png'
         },
     ];
 
@@ -81,7 +85,7 @@ const Projects = () => {
             id="projects"
             ref={ref}
             className="relative"
-            style={{ 
+            style={{
                 background: '#0a0514',
                 paddingTop: '120px',
                 paddingBottom: '120px'
@@ -107,22 +111,24 @@ const Projects = () => {
                             initial={{ opacity: 0, y: 50 }}
                             animate={inView ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.6, delay: index * 0.2 }}
-                            className={`grid md:grid-cols-2 gap-12 items-center ${
-                                project.imagePosition === 'right' ? 'md:grid-flow-dense' : ''
-                            }`}
+                            className={`grid md:grid-cols-2 gap-12 items-center ${project.imagePosition === 'right' ? 'md:grid-flow-dense' : ''
+                                }`}
                         >
                             {/* Screenshot/Mockup */}
                             <div
-                                className={`${
-                                    project.imagePosition === 'right' ? 'md:col-start-2' : ''
-                                }`}
+                                className={`${project.imagePosition === 'right' ? 'md:col-start-2' : ''
+                                    }`}
                             >
-                                <div className="glass-card p-6 aspect-video flex items-center justify-center">
-                                    {/* Placeholder - Replace with actual screenshots */}
-                                    <div className="w-full h-full bg-gradient-to-br from-purple-600 to-pink-500 rounded-lg flex items-center justify-center">
-                                        <span className="text-4xl font-bold text-white opacity-50">
-                                            {project.title}
-                                        </span>
+                                <div className="glass-card p-6 aspect-video flex items-center justify-center relative overflow-hidden group">
+                                    {/* Screenshot */}
+                                    <div className="relative w-full h-full rounded-lg overflow-hidden">
+                                        <Image
+                                            src={project.image}
+                                            alt={project.title}
+                                            fill
+                                            style={{ objectFit: 'contain' }}
+                                            className="transition-transform duration-500 group-hover:scale-105"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -130,23 +136,23 @@ const Projects = () => {
                             {/* Content - INCREASED SPACING */}
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
                                 {/* Title - INCREASED BOTTOM MARGIN */}
-                                <h3 
+                                <h3
                                     className="text-3xl font-bold text-white"
                                     style={{ marginBottom: '8px' }}
                                 >
                                     {project.title}
                                 </h3>
-                                
+
                                 {/* Subtitle - INCREASED BOTTOM MARGIN */}
-                                <h4 
+                                <h4
                                     className="text-xl text-pink-400"
                                     style={{ marginBottom: '12px' }}
                                 >
                                     {project.subtitle}
                                 </h4>
-                                
+
                                 {/* Description - INCREASED BOTTOM MARGIN */}
-                                <p 
+                                <p
                                     className="text-gray-300 leading-loose text-base md:text-lg"
                                     style={{ marginBottom: '12px' }}
                                 >
@@ -177,7 +183,7 @@ const Projects = () => {
                                 </div>
 
                                 {/* Links - INCREASED TOP PADDING AND GAP */}
-                                <div 
+                                <div
                                     className="flex gap-5"
                                     style={{ paddingTop: '20px' }}
                                 >

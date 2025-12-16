@@ -1,43 +1,20 @@
-import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
-import './globals.css';
+import type { Metadata } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
+import "./globals.css";
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
+  variable: "--font-inter",
+  subsets: ["latin"],
 });
 
 const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
-  display: 'swap',
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: 'Phuong To - DevOps Software Engineer',
-  description:
-    'DevOps Software Engineer specializing in CI/CD pipelines, Docker, Kubernetes, and Full-Stack Development. Based in Seattle, WA.',
-  keywords: [
-    'DevOps',
-    'Software Engineer',
-    'Full-Stack Developer',
-    'Docker',
-    'Kubernetes',
-    'CI/CD',
-    'React',
-    'Next.js',
-    'TypeScript',
-    'Seattle',
-  ],
-  authors: [{ name: 'Phuong To' }],
-  openGraph: {
-    title: 'Phuong To - DevOps Software Engineer',
-    description:
-      'DevOps Software Engineer specializing in CI/CD pipelines, Docker, Kubernetes, and Full-Stack Development.',
-    type: 'website',
-    locale: 'en_US',
-  },
+  title: "Phuong To - DevOps Software Engineer",
+  description: "Portfolio of Phuong To, a DevOps Software Engineer specializing in CI/CD, Docker, Kubernetes, and full-stack development.",
 };
 
 export default function RootLayout({
@@ -46,8 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <body 
+        className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>
