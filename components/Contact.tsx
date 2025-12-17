@@ -42,13 +42,6 @@ const Contact = () => {
             link: '',
             copyable: false,
         },
-        {
-            icon: <FaPhone />,
-            label: 'Phone',
-            value: '+1 (570) 640-1300',
-            link: 'tel:+15706401300',
-            copyable: true,
-        },
     ];
 
     const handleCopy = (text: string) => {
